@@ -12,16 +12,12 @@ before_script:
   - python manage.py makemigrations
   - python manage.py migrate
 
-after_script:
-  - coveralls
-
 script:
   - black .
   - black --check .
   - flake8 .
   - coverage run manage.py test
 
-# Set the COVERALLS_REPO_TOKEN environment variable
-env:
-  global:
-    - COVERALLS_REPO_TOKEN=WcPHVCjZBcbA9sGo5RM26cggM8S3B6Hh9
+after_script:
+  - coveralls --service=github
+  
