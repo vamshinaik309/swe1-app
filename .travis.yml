@@ -14,7 +14,7 @@ before_script:
 
 
 after_script:
-  - coveralls
+  - coveralls --service=github
 
 script:
   - black .
