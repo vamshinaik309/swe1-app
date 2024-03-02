@@ -16,8 +16,8 @@ script:
   - black .
   - black --check .
   - flake8 .
-  - coverage run manage.py test
+  - coverage run --source=mysite_swe1_app,polls manage.py test
+
 
 after_script:
   - coveralls --service=github
-  
