@@ -12,7 +12,6 @@ before_script:
   - python manage.py makemigrations
   - python manage.py migrate
 
-
 after_script:
   - coveralls
 
@@ -21,4 +20,8 @@ script:
   - black --check .
   - flake8 .
   - coverage run manage.py test
-#   - coverage run --source='user_profile,dashboard,search,view_profile,vibematch' manage.py test --settings=vibecheck.test_settings user_profile dashboard search view_profile vibematch --no-input --keepdb
+
+# Set the COVERALLS_REPO_TOKEN environment variable
+env:
+  global:
+    - COVERALLS_REPO_TOKEN=WcPHVCjZBcbA9sGo5RM26cggM8S3B6Hh9
