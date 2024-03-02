@@ -14,10 +14,11 @@ before_script:
 
 
 after_script:
-  - coveralls --service=github
+  - coveralls
 
 script:
   - black .
   - black --check .
   - flake8 .
+  - coverage run manage.py test
 #   - coverage run --source='user_profile,dashboard,search,view_profile,vibematch' manage.py test --settings=vibecheck.test_settings user_profile dashboard search view_profile vibematch --no-input --keepdb
