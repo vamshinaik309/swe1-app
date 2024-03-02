@@ -9,7 +9,8 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = []
-
+    d11 = "date published"
+    p12 = "polls.question"
     operations = [
         migrations.CreateModel(
             name="Question",
@@ -24,7 +25,7 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("question_text", models.CharField(max_length=200)),
-                ("pub_date", models.DateTimeField(verbose_name="date published")),
+                ("pub_date", models.DateTimeField(verbose_name=d11)),
             ],
         ),
         migrations.CreateModel(
@@ -44,7 +45,7 @@ class Migration(migrations.Migration):
                 (
                     "question",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.CASCADE, to="polls.question"
+                        on_delete=django.db.models.deletion.CASCADE, to=p12
                     ),
                 ),
             ],

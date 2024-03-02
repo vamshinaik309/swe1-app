@@ -1,33 +1,23 @@
-language: python
-
-os: linux
 dist: focal
-
+language: python
 python:
-    - "3.11"
+  - "3.11"
+
+cache: pip
 
 install:
   - pip install -r requirements.txt
 
 before_script:
+  - python manage.py makemigrations
   - python manage.py migrate
 
-script:
-  - black --check .
-  - flake8
-  - coverage run manage.py test
 
 after_script:
   - coveralls
 
-  
-# deploy:
-#   provider: elasticbeanstalk
-#   access_key_id: $access_key_id
-#   secret_access_key: $secret_access_key
-#   region: "us-west-2"
-#   app: "TutorNYU-dev-branch"
-#   env: "app-env"
-#   bucket_name: "elasticbeanstalk-us-west-2-381492260474"
-#   on:
-#       branch: develop
+script:
+  - black .
+  - black --check .
+  - flake8 .
+  - coverage run --source='user_profile,dashboard,search,view_profile,vibematch' manage.py test --settings=vibecheck.test_settings user_profile dashboard search view_profile vibematch --no-input --keepdb

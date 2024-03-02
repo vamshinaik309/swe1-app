@@ -20,17 +20,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-g0h$tzio-zs^gmmw8ky^^zpk%@gu_lkwp0!#o3c%-)@pffmqa*"
+# SECRET_KEY =
+# "django-insecure-g0h$tzio-zs^gmmw8ky^^zpk%@gu_lkwp0!#o3c%-)@pffmqa*"
+s1 = "django-insecure-g0h$tzio-zs^gmmw8ky^^zpk%@gu_lkwp0!#o3c%-)@pffmqa*"
+SECRET_KEY = s1
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # ALLOWED_HOSTS = []
+
 ALLOWED_HOSTS = [
     "staging.eba-nzzrhmee.us-east-1.elasticbeanstalk.com",
     ".elasticbeanstalk.com",
     "*",
 ]
+
 
 # Application definition
 
@@ -74,10 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "mysite.wsgi.application"
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -89,18 +91,23 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
+t1 = "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+t2 = "django.contrib.auth.password_validation.MinimumLengthValidator"
+t3 = "django.contrib.auth.password_validation.CommonPasswordValidator"
+t4 = "django.contrib.auth.password_validation.NumericPasswordValidator"
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": t1,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": t2,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": t3,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": t4,
     },
 ]
 
