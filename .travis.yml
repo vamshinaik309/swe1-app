@@ -31,5 +31,5 @@ deploy:
   env: "mysite_env"
   bucket_name: "elasticbeanstalk-us-east-1-905418363028"
   on:
-    branch: master
+    branch: main
 
