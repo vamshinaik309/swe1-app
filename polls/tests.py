@@ -127,12 +127,13 @@ class QuestionDetailViewTests(TestCase):
         url = reverse("polls:detail", args=(future_question.id,))
         response = self.client.get(url)
 
-        # Modify the expectation to check for a successful response (status code 200)
+        # Modify the expectation to check for a successful response
+        # (status code 200)
         self.assertEqual(response.status_code, 200)
 
         # You can also check other aspects of the response, if needed
         self.assertContains(response, future_question.question_text)
-        
+
     def test_past_question(self):
         """
         The detail view of a question with a pub_date in the past
